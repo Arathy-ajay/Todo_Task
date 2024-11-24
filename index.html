@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="profile">
+            <img src="pic1.jpeg" alt="Profile Picture" id="profilePic">
+           
+            <h3>Do-it</h3>
+            <p>ARATHY</p>
+        </div>
+        <ul>
+            <li><a href="javascript:void(0)" onclick="showAllTasks()" class="menu-item active">All Tasks</a></li>
+            <li><a href="javascript:void(0)" onclick="filterByCategory('personal')" class="menu-item">
+                <span class="dot personal-dot"></span> Personal
+            </a></li>
+            <li><a href="javascript:void(0)" onclick="filterByCategory('freelance')" class="menu-item">
+                <span class="dot freelance-dot"></span> Freelance
+            </a></li>
+            <li><a href="javascript:void(0)" onclick="filterByCategory('work')" class="menu-item">
+                <span class="dot work-dot"></span> Work
+            </a></li>
+            <li><a href="#">Add Filter</a></li>
+            <li><a href="#">Scheduled Tasks</a></li>
+            <li><a href="#">Settings</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        
+        
+        <div id="add-task" class="task-form">
+            <h2>Today main focus</h2>
+            <h1>Design team meeting</h1>
+            <input type="text" id="taskName" placeholder="What is your next task ?" style="
+    width: 96%;
+">
+            <input type="datetime-local" id="taskDateTime" style="
+    width: 48%;
+">
+            <select id="taskCategory" class="task-category" style="
+    width: 48%; height: 60px; border-radius: 10px; padding: 20px;
+">
+                <option value="">Select Category</option>
+                <option value="personal">Personal</option>
+                <option value="freelance">Freelance</option>
+                <option value="work">Work</option>
+            </select>
+            <button onclick="addTask()">Save Task</button>
+        </div>
+
+        <div id="view-tasks" class="task-list">
+            <h2>
+                <h1>View Tasks</h1>
+                <H3 style="color: black;">DATE FILTER
+                <input type="date" id="dateFilter" onchange="filterTasksByDate()" class="date-filter">
+                <button onclick="resetDateFilter()" class="reset-filter">Back</button>
+                </H3>
+            </h2>
+            </h2>
+            <div id="taskList"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
